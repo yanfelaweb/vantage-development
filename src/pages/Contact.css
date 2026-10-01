@@ -1,0 +1,99 @@
+.contact-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.contact-header {
+  margin-bottom: 50px;
+}
+
+.contact-header > p:first-child {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contact-header h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+.contact-header > p:last-child {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.contact-page form {
+  display: grid;
+  gap: 22px;
+}
+
+.contact-page label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.contact-page input,
+.contact-page select,
+.contact-page textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.contact-page textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-page button {
+  padding: 15px 24px;
+  border: none;
+  border-radius: 7px;
+  background: #111;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-page button:hover {
+  opacity: 0.85;
+}
+
+.form-success {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f2f2f2;
+  border-radius: 7px;
+}
+
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 60px 20px;
+  }
+
+  .contact-header h1 {
+    font-size: 38px;
+  }
+}
+
+.form-error {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff1f1;
+  color: #9b1c1c;
+  border: 1px solid #f0c2c2;
+  border-radius: 7px;
+}
+
+.contact-page button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

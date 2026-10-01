@@ -1,0 +1,50 @@
+.properties-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.properties-page h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.property-filters {
+  display: flex;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.property-filters input,
+.property-filters select {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.property-filters input {
+  flex: 1;
+}
+
+.property-filters select {
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  .properties-page {
+    padding: 50px 20px;
+  }
+
+  .properties-page h1 {
+    font-size: 36px;
+  }
+
+  .property-filters {
+    flex-direction: column;
+  }
+
+  .property-filters select {
+    width: 100%;
+  }
+}
