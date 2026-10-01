@@ -30,22 +30,26 @@ import "./Properties.css";
       <h1>Our Properties</h1>
 
              <div className="property-filter">
-                      <input
-                  type="text"
-                  placeholder="Search properties..."
-                  value={search}
-                  onChange={(event) => setSearch(event.target.value)}
-                />
-                        <select
-                  value={typeFilter}
-                  onChange={(event) => setTypeFilter(event.target.value)}
-                >
-                  <option value="All">All Properties</option>
-                  <option value="Residential">Residential</option>
-                  <option value="Commercial">Commercial</option>
-                </select>
-                
-             </div>
+  <label htmlFor="property-search">Search Properties</label>
+  <input
+    id="property-search"
+    type="text"
+    placeholder="Search properties..."
+    value={search}
+    onChange={(event) => setSearch(event.target.value)}
+  />
+
+  <label htmlFor="property-type">Property Type</label>
+  <select
+    id="property-type"
+    value={typeFilter}
+    onChange={(event) => setTypeFilter(event.target.value)}
+  >
+    <option value="All">All Properties</option>
+    <option value="Residential">Residential</option>
+    <option value="Commercial">Commercial</option>
+  </select>
+</div>
       <p>
         Explore our collection of thoughtfully designed residential
         and commercial developments.
