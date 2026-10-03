@@ -1,21 +1,37 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 import { useState } from "react";
+import "./Navbar.css";
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav>
-      <h1>VANTAGE</h1>
-                    <button
-            className="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={menuOpen}
-            aria-control = "navigator-links"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-                <div id="navigation-links" className={menuOpen ? "nav-links open" : "nav-links"} >
+    <nav className="navbar">
+      <Link
+        to="/"
+        className="navbar-logo"
+        onClick={() => setMenuOpen(false)}
+      >
+        VANTAGE
+      </Link>
+
+      <button
+        className="menu-button"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+        aria-controls="navigation-links"
+      >
+        {menuOpen ? "✕" : "☰"}
+      </button>
+
+      <div
+        id="navigation-links"
+        className={menuOpen ? "nav-links open" : "nav-links"}
+      >
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          Home
+        </Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>
           About
         </Link>

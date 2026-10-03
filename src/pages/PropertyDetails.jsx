@@ -30,7 +30,7 @@ function PropertyDetails() {
 }
 
  return (
-  <main>
+  <main className="property-details-page">
     <section>
       <img src={property.image}
       alt={property.name} />

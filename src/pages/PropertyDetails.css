@@ -1,7 +1,31 @@
 .property-details-page {
-  padding: 80px 40px;
+  padding: 60px 40px 30px;
   max-width: 1100px;
   margin: 0 auto;
+  background: #f8f4ec;
+}
+
+.property-details-page > section > p:first-of-type {
+  display: inline-block;
+  color: #b8894f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.property-details-page section > p:first-of-type {
+  display: inline-block;
+  padding: 7px 12px;
+  background: #e8dcc8;
+  color: #8a6235;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .property-features {
@@ -13,7 +37,8 @@
 
 .property-features div {
   padding: 24px;
-  border: 1px solid #e5e5e5;
+  background: #173a32;
+  color: #ffffff;
   border-radius: 10px;
 }
 
@@ -28,7 +53,7 @@
 }
 
 .property-features span {
-  color: #666;
+  color: #f7f2e8;
 }
 
 @media (max-width: 600px) {
@@ -70,7 +95,7 @@
 }
 
 .property-amenities {
-  margin: 40px 0;
+  margin: 40px 0 20px;
 }
 
 .property-amenities h2 {
@@ -89,4 +114,28 @@
 .property-amenities li {
   padding: 14px 0;
   border-bottom: 1px solid #e5e5e5;
+  color: #4f5b56;
+}
+
+.property-details-page > section > a {
+  display: inline-block;
+  margin-top: 20px 0 10px;
+  padding: 14px 24px;
+  background: #173a32;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.property-details-page > section > a:hover {
+  transform: translateY(-2px);
+}
+
+.property-details-page section > h2 {
+  font-size: 32px;
+  color: #173a32;
+  margin: 20px 0 28px;
+  font-weight: 700;
 }

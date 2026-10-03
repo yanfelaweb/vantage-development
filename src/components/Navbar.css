@@ -1,58 +1,81 @@
-nav {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 1px solid #e5e5e5;
+  padding: 22px 7%;
+  background: #f8f4ec;
+  border-bottom: 1px solid #e8dfd1;
 }
 
-nav h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-nav div {
-  display: flex;
-  gap: 30px;
-}
-
-nav a {
+.navbar-logo {
   text-decoration: none;
-  color: #222;
-  font-weight: 500;
+  color: #1f2925;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 3px;
 }
 
-nav a:hover {
-  color: #777;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
 }
+
+.nav-links a {
+  text-decoration: none;
+  color: #343b37;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #b8894f;
+}
+
+.nav-links a:last-child {
+  background: #1f2925;
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 5px;
+}
+
+.nav-links a:last-child:hover {
+  background: #b8894f;
+  color: #ffffff;
+}
+
 .menu-button {
   display: none;
+  border: none;
+  background: transparent;
+  color: #1f2925;
+  font-size: 26px;
+  cursor: pointer;
 }
+
+/* Mobile */
 @media (max-width: 700px) {
-  nav {
+  .navbar {
     padding: 18px 20px;
     flex-wrap: wrap;
   }
 
-  nav h1 {
-    font-size: 22px;
+  .navbar-logo {
+    font-size: 21px;
   }
 
   .menu-button {
-    display: block ;
-    border: none;
-    background: transparent;
-    font-size: 26px;
-    cursor: pointer;
+    display: block;
   }
- 
 
   .nav-links {
     display: none;
     width: 100%;
     flex-direction: column;
-    gap: 18px;
-    padding-top: 15px;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px 0 5px;
   }
 
   .nav-links.open {
@@ -60,7 +83,12 @@ nav a:hover {
   }
 
   .nav-links a {
+    width: 100%;
     font-size: 15px;
   }
-}
 
+  .nav-links a:last-child {
+    width: auto;
+    padding: 11px 20px;
+  }
+}

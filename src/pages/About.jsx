@@ -2,6 +2,7 @@
 
 
 import { useEffect } from "react";
+import "./About.css";
 function About() {
   useEffect(() => {
   document.title = "About Us | Vantage Developments";

@@ -29,7 +29,7 @@ import "./Properties.css";
     <main className="properties-page">
       <h1>Our Properties</h1>
 
-             <div className="property-filter">
+             <div className="property-filters">
   <label htmlFor="property-search">Search Properties</label>
   <input
     id="property-search"
@@ -55,7 +55,7 @@ import "./Properties.css";
         and commercial developments.
       </p>
 
-      <div>
+      <div className="properties-grid">
   {filteredProperties.length > 0 ? (
     filteredProperties.map((property) => (
       <PropertyCard

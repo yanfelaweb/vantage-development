@@ -29,6 +29,11 @@
 .contact-page form {
   display: grid;
   gap: 22px;
+  padding: 35px;
+  background: #f7f2e8;
+  /* border: 1px solid #e7dfd2; */
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
 
 .contact-page label {
@@ -42,14 +47,16 @@
 .contact-page textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
+  padding: 15px 16px;
+  border: 1px solid #d8d2c7;
+  border-radius: 8px;
+  background: #ffffff;
   font: inherit;
 }
 
+
 .contact-page textarea {
-  min-height: 150px;
+  min-height: 120px;
   resize: vertical;
 }
 
@@ -57,7 +64,7 @@
   padding: 15px 24px;
   border: none;
   border-radius: 7px;
-  background: #111;
+  background: #173a32;
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -80,7 +87,10 @@
   }
 
   .contact-header h1 {
-    font-size: 38px;
+    font-size: 34px;
+  }
+  .contact-page form {
+    padding: 25px 20px;
   }
 }
 
@@ -96,4 +106,12 @@
 .contact-page button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.contact-page input:focus,
+.contact-page select:focus,
+.contact-page textarea:focus {
+  outline: none;
+  border-color: #173a32;
+  box-shadow: 0 0 0 3px rgba(23, 58, 50, 0.12);
 }

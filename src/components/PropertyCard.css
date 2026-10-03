@@ -1,61 +1,161 @@
 .property-card {
-  border: 1px solid #e5e5e5;
-  padding: 28px;
-  border-radius: 12px;
-  background: white;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e4ddd2;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(31,41,37,0.08)
+}
+.property-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(31, 41, 37, 0.13);
 }
 
 .property-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-7px);
+  border-color: #c59b5f;
+  box-shadow: 0 18px 40px rgba(24, 42, 37, 0.13);
+}
+
+
+/* PROPERTY IMAGE */
+
+.property-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.property-card > div {
+  padding: 22px;
+}
+
+.property-card > div + div {
+  padding-top: 0;
+}
+
+.property-card:hover img {
+  transform: scale(1.03);
+}
+
+
+/* CARD CONTENT */
+
+.property-card > div {
+  padding: 0 26px;
+}
+
+.property-card > div:nth-of-type(1) {
+  padding-top: 25px;
+}
+
+.property-card > div:last-child {
+  padding-bottom: 28px;
+}
+
+
+/* PROPERTY STATUS */
+
+
+
+
+/* PROPERTY NAME */
+
+.property-title {
+  color: #182a25;
+
+  font-size: 25px;
+  line-height: 1.2;
+
+  margin: 0 0 10px;
+}
+
+
+/* LOCATION */
+
+.property-location {
+  color: #7a827f;
+  font-size: 14px;
+
+  margin-bottom: 20px;
+}
+
+
+/* DESCRIPTION */
+
+.property-description {
+  color: #68736f;
+
+  line-height: 1.7;
+  font-size: 15px;
+
+  margin: 0;
+}
+
+
+/* PRICE */
+
+.property-price {
+  color: #182a25;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  margin: 20px 0 10px;
+}
+
+
+/* BEDROOMS / BATHROOMS / SIZE */
+
+.property-details {
+  color: #7a827f;
+  font-size: 13px;
+
+  margin: 0 0 22px;
+}
+
+
+/* VIEW PROPERTY BUTTON */
+
+.property-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: #173a32;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.property-button:hover {
+  background: #b8895b;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .property-card img {
+    height: 220px;
+  }
+
+  .property-card > div {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .property-title {
+    font-size: 22px;
+  }
 }
 
 .property-status {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  color: #b8895b;
 }
 
-.property-title {
-  font-size: 24px;
-  margin: 10px 0;
-}
-
-.property-location {
-  color: #666;
-}
-
-.property-description {
-  line-height: 1.6;
-  color: #555;
-}
-
-.property-price {
-  font-size: 22px;
-  font-weight: 700;
-  margin-top: 20px;
-}
-
-.property-details {
-  margin: 15px 0;
-  color: #555;
-}
-
-.property-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.property-card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}

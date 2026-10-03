@@ -111,6 +111,27 @@ function Home() {
                   </article>
                 </div>
               </section>
+                            <section className="featured-properties">
+                          <div className="section-heading">
+                                  <p>OUR PORTFOLIO</p>
+                                  <h2>Featured Properties</h2>
+                                  <p>
+                                    Explore a selection of thoughtfully designed spaces
+                                    developed by Vantage.
+                                  </p>
+                          </div>
+
+
+
+                      <div className="properties-grid">
+                        {properties.map((property) => (
+                          <PropertyCard
+                            key={property.id}
+                            property={property}
+                          />
+                        ))}
+                      </div>
+                    </section>
               <section className="testimonials">
               <div className="section-heading">
                 <p>CLIENT STORIES</p>
@@ -166,27 +187,7 @@ function Home() {
                     </Link>
                   </div>
                 </section>
-                <section className="featured-properties">
-            <div className="section-heading">
-                    <p>OUR PORTFOLIO</p>
-                    <h2>Featured Properties</h2>
-                    <p>
-                      Explore a selection of thoughtfully designed spaces
-                      developed by Vantage.
-                    </p>
-            </div>
-
-
-
-        <div className="properties-grid">
-          {properties.map((property) => (
-            <PropertyCard
-              key={property.id}
-              property={property}
-            />
-          ))}
-        </div>
-      </section>
+                
     </main>
   );
 }

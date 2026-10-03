@@ -1,7 +1,7 @@
 .footer {
-  margin-top: 80px;
+  margin-top: 0;
   padding: 60px 40px 30px;
-  background: #111;
+  background: #173a32;
   color: white;
 
   display: grid;
@@ -27,12 +27,12 @@
 }
 
 .footer a:hover {
-  color: white;
+  color:#c79a5b;
 }
 
 .footer > p:last-child {
   grid-column: 1 / -1;
-  border-top: 1px solid #333;
+  border-top: 1px solid rgba(255,255,255,0.15);
   padding-top: 25px;
   margin-top: 20px;
 }

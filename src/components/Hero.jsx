@@ -4,9 +4,17 @@ import { Link } from "react-router-dom";
 
 import "./Hero.css";
 
+import heroHouse from "../images/hero-house.jpg";
+
 function Hero({ title, description }) {
   return (
-    <section className="hero">
+   
+  
+  
+  <section
+  className="hero"
+  style={{ backgroundImage: `url(${heroHouse})` }}
+>
       <div className="hero-content">
         <p className="hero-label">VANTAGE DEVELOPMENTS</p>
 
