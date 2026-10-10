@@ -5,7 +5,10 @@ import "./PropertyCard.css";
 function PropertyCard({ property }) {
   return (
     <article className="property-card">
-      <img src={property.image} alt={property.name} loading="lazy" />
+    <img
+  src={property.image?.replace("/src/images/", "/images/")}
+  alt={property.name}
+/>
       <div>
         <p className="property-status">{property.status}</p>
 
