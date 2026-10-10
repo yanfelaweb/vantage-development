@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 
+const authMiddleware = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
 // Admin login
@@ -58,6 +60,29 @@ router.post("/login", async (req, res) => {
   console.error("Admin login error:", error.message);
     res.status(500).json({
       message: "Login failed",
+    });
+  }
+});
+
+
+
+// Verify the current administrator's token
+router.get("/verify", authMiddleware, async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.admin.adminId);
+
+    if (!admin) {
+      return res.status(401).json({
+        message: "Administrator account not found",
+      });
+    }
+
+    res.json({
+      authenticated: true,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Authentication verification failed",
     });
   }
 });
