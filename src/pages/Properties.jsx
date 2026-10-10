@@ -41,14 +41,40 @@ import "./Properties.css";
       <h1>Our Properties</h1>
 
              <div className="property-filters">
-  <label htmlFor="property-search">Search Properties</label>
+ 
+    <label htmlFor="property-search">
+  Search Properties
+</label>
+
+<div className="property-search-wrapper">
+  <svg
+    className="property-search-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.35-4.35" />
+  </svg>
+
   <input
     id="property-search"
-    type="text"
-    placeholder="Search properties..."
+    type="search"
+    placeholder="Search properties or locations..."
     value={search}
     onChange={(event) => setSearch(event.target.value)}
   />
+</div>
+
+
+  
 
   <label htmlFor="property-type">Property Type</label>
   <select
