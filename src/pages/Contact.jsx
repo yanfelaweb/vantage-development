@@ -1,16 +1,17 @@
 import "./Contact.css";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import properties from "../data/properties";
+
+const API_URL =
+  "https://vantage-backend-1fn9.onrender.com";
 
 function Contact() {
   const [searchParams] = useSearchParams();
-
   const propertySlug = searchParams.get("property");
 
-  const selectedProperty = properties.find(
-    (property) => property.slug === propertySlug
-  );
+  // Properties from MongoDB
+  const [properties, setProperties] = useState([]);
+  const [propertiesError, setPropertiesError] = useState("");
 
   // Form states
   const [fullName, setFullName] = useState("");
@@ -18,20 +19,92 @@ function Contact() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [userMessage, setUserMessage] = useState("");
-
-  const [interest, setInterest] = useState(
-    selectedProperty ? selectedProperty.slug : ""
-  );
+  const [interest, setInterest] = useState("");
 
   // Submission states
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const selectedProperty = properties.find(
+    (property) => property.slug === propertySlug
+  );
+
   // Page title
   useEffect(() => {
     document.title = "Contact Us | Vantage Developments";
   }, []);
+
+  // Fetch properties from MongoDB
+  useEffect(() => {
+    async function fetchProperties() {
+      try {
+        const response = await fetch(
+          `${API_URL}/api/properties`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch properties");
+        }
+
+        const data = await response.json();
+
+        setProperties(data);
+        setPropertiesError("");
+      } catch (err) {
+        console.error("Contact properties error:", err);
+        setPropertiesError(
+          "Unable to load properties. Please try again."
+        );
+      }
+    }
+
+    fetchProperties();
+  }, []);
+
+  // Automatically select property from inquiry link
+  useEffect(() => {
+    if (!propertySlug) {
+      setInterest("");
+      return;
+    }
+
+    if (selectedProperty) {
+      setInterest(selectedProperty.slug);
+    }
+  }, [propertySlug, selectedProperty?.slug]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!/^\d{10,15}$/.test(phone.trim())) {
+      setError("Please enter a valid phone number.");
+      setMessage("");
+      return;
+    }
+
+    setIsLoading(true);
+    setMessage("");
+    setError("");
+
+    // Temporary demo submission.
+    // This does not yet send or store the inquiry.
+    setTimeout(() => {
+      setIsLoading(false);
+
+      setMessage(
+        "Your form has been submitted in demo mode. " +
+        "Inquiry delivery is not configured yet."
+      );
+
+      setFullName("");
+      setEmail("");
+      setPhone("");
+      setSubject("");
+      setInterest("");
+      setUserMessage("");
+    }, 1500);
+  }
 
   return (
     <main className="contact-page">
@@ -46,38 +119,7 @@ function Contact() {
         </p>
       </section>
 
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-
-              if (!/^\d{10,15}$/.test(phone)) {
-                setError("Please enter a valid phone number.");
-                setMessage("");
-                return;
-              }
-          setIsLoading(true);
-          setMessage("");
-          setError("");
-
-          setTimeout(() => {
-            setIsLoading(false);
-
-            setMessage(
-              "Thank you. Your inquiry has been received."
-            );
-
-
-                  setFullName("");
-                  setEmail("");
-                  setPhone("");
-                  setSubject("");
-                  setInterest("");
-                  setUserMessage("");
-
-          }, 1500);
-
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         {/* Full Name */}
         <label htmlFor="fullName">
           Full Name
@@ -179,7 +221,7 @@ function Contact() {
           <optgroup label="Properties">
             {properties.map((property) => (
               <option
-                key={property.id}
+                key={property._id}
                 value={property.slug}
               >
                 {property.name}
@@ -187,6 +229,12 @@ function Contact() {
             ))}
           </optgroup>
         </select>
+
+        {propertiesError && (
+          <p className="form-error">
+            {propertiesError}
+          </p>
+        )}
 
         {/* Message */}
         <label htmlFor="message">
