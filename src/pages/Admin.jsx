@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom"; 
 
-const API_URL = "http://localhost:5000/api/properties";
+const API_URL = "https://vantage-backend-1fn9.onrender.com/api/properties";
 
 const emptyForm = {
   name: "",

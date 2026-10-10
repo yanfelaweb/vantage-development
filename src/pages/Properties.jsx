@@ -14,7 +14,7 @@ import "./Properties.css";
               document.title = "Properties | Vantage Developments";
             }, []);
                       useEffect(() => {
-            fetch("http://localhost:5000/api/properties")
+            fetch("https://vantage-backend-1fn9.onrender.com/api/properties")
               .then((response) => response.json())
               .then((data) => {
                 setProperties(data);
