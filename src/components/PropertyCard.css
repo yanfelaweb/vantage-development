@@ -1,22 +1,26 @@
+/* PROPERTY CARD */
+
 .property-card {
-  border: 1px solid #e4ddd2;
+  border: 1px solid var(--border-color);
   border-radius: 14px;
-  background: #ffffff;
+  background: var(--card-bg);
+  color: var(--text-color);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 24px rgba(31,41,37,0.08)
-}
-.property-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(31, 41, 37, 0.13);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .property-card:hover {
   transform: translateY(-7px);
-  border-color: #c59b5f;
-  box-shadow: 0 18px 40px rgba(24, 42, 37, 0.13);
+  border-color: var(--accent-color);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
-
 
 /* PROPERTY IMAGE */
 
@@ -26,20 +30,13 @@
   object-fit: cover;
   display: block;
   border-radius: 0;
-  margin-bottom: 0;
-}
-.property-card > div {
-  padding: 22px;
-}
-
-.property-card > div + div {
-  padding-top: 0;
+  margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .property-card:hover img {
   transform: scale(1.03);
 }
-
 
 /* CARD CONTENT */
 
@@ -55,67 +52,58 @@
   padding-bottom: 28px;
 }
 
-
 /* PROPERTY STATUS */
 
-
-
+.property-status {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-color);
+}
 
 /* PROPERTY NAME */
 
 .property-title {
-  color: #182a25;
-
+  color: var(--text-color);
   font-size: 25px;
   line-height: 1.2;
-
   margin: 0 0 10px;
 }
-
 
 /* LOCATION */
 
 .property-location {
-  color: #7a827f;
+  color: var(--muted-color);
   font-size: 14px;
-
   margin-bottom: 20px;
 }
-
 
 /* DESCRIPTION */
 
 .property-description {
-  color: #68736f;
-
+  color: var(--muted-color);
   line-height: 1.7;
   font-size: 15px;
-
   margin: 0;
 }
-
 
 /* PRICE */
 
 .property-price {
-  color: #182a25;
-
+  color: var(--text-color);
   font-size: 22px;
   font-weight: 700;
-
   margin: 20px 0 10px;
 }
-
 
 /* BEDROOMS / BATHROOMS / SIZE */
 
 .property-details {
-  color: #7a827f;
+  color: var(--muted-color);
   font-size: 13px;
-
   margin: 0 0 22px;
 }
-
 
 /* VIEW PROPERTY BUTTON */
 
@@ -124,7 +112,7 @@
   padding: 12px 20px;
   border-radius: 6px;
   background: #173a32;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.2s ease;
@@ -132,6 +120,18 @@
 
 .property-button:hover {
   background: #b8895b;
+  color: #ffffff;
+}
+
+/* DARK MODE BUTTON */
+
+[data-theme="dark"] .property-button {
+  background: #c59b5f;
+  color: #151c19;
+}
+
+[data-theme="dark"] .property-button:hover {
+  background: #d6ad70;
 }
 
 /* MOBILE */
@@ -150,12 +150,3 @@
     font-size: 22px;
   }
 }
-
-.property-status {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #b8895b;
-}
-

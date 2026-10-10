@@ -1,3 +1,4 @@
+/* NAVIGATION BAR */
 .navbar {
   display: flex;
   align-items: center;
@@ -5,6 +6,7 @@
   padding: 22px 7%;
   background: #f8f4ec;
   border-bottom: 1px solid #e8dfd1;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-logo {
@@ -33,18 +35,42 @@
   color: #b8894f;
 }
 
-.nav-links a:last-child {
+/* CONTACT BUTTON */
+.nav-links a[href="/contact"] {
   background: #1f2925;
   color: #ffffff;
   padding: 11px 20px;
   border-radius: 5px;
 }
 
-.nav-links a:last-child:hover {
+.nav-links a[href="/contact"]:hover {
   background: #b8894f;
   color: #ffffff;
 }
 
+/* THEME TOGGLE */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: 1px solid #d7c8b2;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1f2925;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+  background: #eee3d1;
+}
+
+/* MOBILE MENU BUTTON */
 .menu-button {
   display: none;
   border: none;
@@ -54,7 +80,48 @@
   cursor: pointer;
 }
 
-/* Mobile */
+/* DARK MODE NAVIGATION */
+[data-theme="dark"] .navbar {
+  background: #151c19;
+  border-bottom-color: #303b35;
+}
+
+[data-theme="dark"] .navbar-logo {
+  color: #f8f4ec;
+}
+
+[data-theme="dark"] .nav-links a {
+  color: #e9e6de;
+}
+
+[data-theme="dark"] .nav-links a:hover {
+  color: #d6b36a;
+}
+
+[data-theme="dark"] .nav-links a[href="/contact"] {
+  background: #c59b5f;
+  color: #151c19;
+}
+
+[data-theme="dark"] .nav-links a[href="/contact"]:hover {
+  background: #d6ad70;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #29332e;
+  border-color: #47554c;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: #39483f;
+}
+
+[data-theme="dark"] .menu-button {
+  color: #f8f4ec;
+}
+
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 700px) {
   .navbar {
     padding: 18px 20px;
@@ -87,7 +154,7 @@
     font-size: 15px;
   }
 
-  .nav-links a:last-child {
+  .nav-links a[href="/contact"] {
     width: auto;
     padding: 11px 20px;
   }
