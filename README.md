@@ -1,88 +1,134 @@
 # Vantage Developments
 
-Vantage Developments is a modern real estate and construction website built with React as part of the TECHPRO Institute React Frontend Development Production Project Assessment.
+**Building spaces. Creating better futures.**
 
-The website presents a fictional premium property development company offering residential and commercial properties in Lagos, Nigeria.
+Vantage Developments is a full-stack real estate web application designed to showcase residential and commercial properties, allow customers to submit inquiries, and provide administrators with tools to manage property listings.
 
-## Live Demo
+## Live Project
 
-https://vantage-development.vercel.app
-
-## GitHub Repository
-
-https://github.com/yanfelaweb/vantage-development
+- Website: https://vantage-development.vercel.app
+- Backend API: https://vantage-backend-1fn9.onrender.com
+- GitHub: https://github.com/yanfelaweb/vantage-development
 
 ## Features
 
-- Responsive real estate website
-- Home, About, Services, Properties and Contact pages
-- Dynamic property detail pages
-- Property search and filtering
-- Property inquiry system
-- Responsive mobile navigation
-- Custom 404 page
-- Accessible form labels and keyboard focus states
-- SEO-friendly page titles and meta description
-- Responsive property images
-- React Router navigation
-- Mobile-friendly design
+### Public Website
+- Responsive navigation and mobile-friendly layout
+- Animated hero image slider with swipe navigation
+- Light and dark themes with saved preferences
+- Property listings with images, prices, and descriptions
+- Individual property detail pages
+- Contact and property inquiry form
 
-## Technologies Used
+### Admin Dashboard
+- Admin login with JWT authentication
+- Protected property management endpoints
+- Add new property listings
+- Edit existing properties
+- Delete property listings
 
+### Backend
+- REST API built with Node.js and Express
+- MongoDB Atlas database
+- Mongoose data models
+- Customer inquiry storage
+- Password hashing with bcrypt
+
+## Technology Stack
+
+**Frontend**
 - React
-- JavaScript
-- React Router
-- CSS
 - Vite
-- Git and GitHub
-- Vercel
+- React Router
+- JavaScript
+- CSS
 
-## Property Listings
+**Backend**
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JSON Web Tokens
+- bcrypt
 
-The project currently showcases three fictional developments:
+**Deployment**
+- Vercel (frontend)
+- Render (backend)
+- GitHub (version control)
 
-- Vantage Heights — Lekki Phase 1, Lagos
-- The Grove Residences — Ikoyi, Lagos
-- Apex Business Park — Victoria Island, Lagos
+## Running Locally
 
-Each property has its own dynamic detail page containing information such as price, location, size, completion status, amenities and an inquiry call-to-action.
+### Prerequisites
+- Node.js and npm
+- MongoDB connection string
+- Backend environment variables
 
-## Running the Project Locally
+### 1. Clone the Repository
 
-Clone the repository:
+```bash
+git clone https://github.com/yanfelaweb/vantage-development.git
+cd vantage-development
+```
 
-    git clone https://github.com/yanfelaweb/vantage-development.git
+### 2. Install Frontend Dependencies
 
-Move into the project directory:
+```bash
+npm install
+```
 
-    cd vantage-development
+### 3. Install Backend Dependencies
 
-Install dependencies:
+```bash
+cd server
+npm install
+```
 
-    npm install
+### 4. Configure the Backend
 
-Start the development server:
+Create a `.env` file inside the `server` directory.
 
-    npm run dev
+Set the environment variables required by the backend, including the MongoDB connection string and JWT secret.
 
-Create a production build:
+Never commit actual credentials or secrets to GitHub.
 
-    npm run build
+### 5. Start the Backend
 
-## Contact Form
+From the `server` directory:
 
-The contact form demonstrates frontend form handling, validation, loading and success/error states.
+```bash
+npm start
+```
 
-The form is currently a frontend demonstration and is not connected to a production backend or email service.
+### 6. Start the Frontend
+
+Open another terminal in the project root:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed by Vite.
+
+## Project Architecture
+
+- `src/` — React frontend components, pages, and styles
+- `public/images/` — Public property images
+- `server/models/` — MongoDB models
+- `server/routes/` — Express API routes
+- `server/index.js` — Backend application entry point
 
 ## Deployment
 
-The project is deployed on Vercel and configured to support React Router routes when pages are opened or refreshed directly.
+The React frontend is hosted on Vercel, while the Express backend is hosted on Render. MongoDB Atlas provides cloud database storage.
 
-## Project Purpose
+## Security
 
-This project demonstrates practical React frontend development skills including reusable components, routing, dynamic data, state management, responsive design, accessibility, form handling, Git version control and production deployment.
+Admin routes use authentication, passwords are hashed, and sensitive environment variables are excluded from version control.
 
----
+## Project Status
 
-Built as part of the TECHPRO Institute React Frontend Development Production Project Assessment.
+Completed and deployed.
+
+## Author
+
+TECHPRO Institute — React Production Project
