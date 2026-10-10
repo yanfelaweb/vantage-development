@@ -1,4 +1,6 @@
 
+
+import ProtectedRoute from "./components/ProtectedRoute";
 import { Navigate } from "react-router-dom";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -23,16 +25,14 @@ function App() {
     <Routes>
                 
                 <Route path="/admin-login" element={<AdminLogin />} />
-                              <Route
-                  path="/admin"
-                  element={
-                    localStorage.getItem("adminToken") ? (
-                      <Admin />
-                    ) : (
-                      <Navigate to="/admin-login" replace />
-                    )
-                  }
-                />
+                                    <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
