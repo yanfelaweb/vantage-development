@@ -73,39 +73,62 @@ function Contact() {
       setInterest(selectedProperty.slug);
     }
   }, [propertySlug, selectedProperty?.slug]);
+  async function handleSubmit(event) {
+  event.preventDefault();
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (!/^\d{10,15}$/.test(phone.trim())) {
-      setError("Please enter a valid phone number.");
-      setMessage("");
-      return;
-    }
-
-    setIsLoading(true);
+  if (!/^\d{10,15}$/.test(phone.trim())) {
+    setError("Please enter a valid phone number.");
     setMessage("");
-    setError("");
-
-    // Temporary demo submission.
-    // This does not yet send or store the inquiry.
-    setTimeout(() => {
-      setIsLoading(false);
-
-      setMessage(
-        "Your form has been submitted in demo mode. " +
-        "Inquiry delivery is not configured yet."
-      );
-
-      setFullName("");
-      setEmail("");
-      setPhone("");
-      setSubject("");
-      setInterest("");
-      setUserMessage("");
-    }, 1500);
+    return;
   }
 
+  setIsLoading(true);
+  setMessage("");
+  setError("");
+
+  try {
+    const response = await fetch(
+      `${API_URL}/api/inquiries`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          subject,
+          interest,
+          message: userMessage
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        data.message || "Unable to send inquiry."
+      );
+    }
+
+    setMessage("Your inquiry has been received.");
+
+    setFullName("");
+    setEmail("");
+    setPhone("");
+    setSubject("");
+    setInterest("");
+    setUserMessage("");
+  } catch (err) {
+    setError(
+      err.message || "Something went wrong. Please try again."
+    );
+  } finally {
+    setIsLoading(false);
+  }
+}
   return (
     <main className="contact-page">
       <section className="contact-header">

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const propertyRoutes = require("./routes/propertyRoutes");
 const authRoutes = require("./routes/authRoutes");
+const inquiryRoutes = require("./routes/inquiryRoutes");
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 5000;
@@ -19,6 +20,7 @@ mongoose
     console.error("MongoDB connection error:", error.message);
   });
 app.use("/api/properties", propertyRoutes);
+app.use("/api/inquiries", inquiryRoutes);
 
 app.use("/api/auth", authRoutes);
 
