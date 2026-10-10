@@ -1,17 +1,28 @@
 
 import {useState, useEffect}  from "react";
-import properties from "../data/properties";
 import PropertyCard from "../components/PropertyCard";
 import "./Properties.css";
 
 
       function Properties() {
 
+
+              const [properties, setProperties] = useState([]);
               const [search, setSearch] = useState("");
               const [typeFilter, setTypeFilter] = useState("All");
                     useEffect(() => {
               document.title = "Properties | Vantage Developments";
             }, []);
+                      useEffect(() => {
+            fetch("http://localhost:5000/api/properties")
+              .then((response) => response.json())
+              .then((data) => {
+                setProperties(data);
+              })
+              .catch((error) => {
+                console.error("Error fetching properties:", error);
+              });
+          }, []);
           const filteredProperties = properties.filter((property) => {
         const searchTerm = search.toLowerCase();
 
@@ -59,7 +70,7 @@ import "./Properties.css";
   {filteredProperties.length > 0 ? (
     filteredProperties.map((property) => (
       <PropertyCard
-        key={property.id}
+        key={property._id}
         property={property}
       />
     ))

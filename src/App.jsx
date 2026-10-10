@@ -1,3 +1,5 @@
+
+import { Navigate } from "react-router-dom";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -8,6 +10,8 @@ import Properties from "./pages/Properties";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/PropertyDetails";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   return (
@@ -17,6 +21,18 @@ function App() {
 
     
     <Routes>
+                
+                <Route path="/admin-login" element={<AdminLogin />} />
+                              <Route
+                  path="/admin"
+                  element={
+                    localStorage.getItem("adminToken") ? (
+                      <Admin />
+                    ) : (
+                      <Navigate to="/admin-login" replace />
+                    )
+                  }
+                />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
